@@ -113,7 +113,7 @@ echo "Do you want to change your default shell to fish? (y/N)"
 read shop
 if [[ "${shop,,}" == "y" || "${shop,,}" == "yes" ]]; then
     sudo apt install fish -y
-    sudo chsh -s $(which fish)
+    sudo chsh -s $(which fish) $user_linux
 fi
 
 
