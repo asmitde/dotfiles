@@ -75,7 +75,7 @@ echo "Checking if OneDrive is present:"
 if [ -e ${WINHOME}/OneDrive ]; then
     echo "OneDrive folder found, have you set up Known Folder Migrate for OneDrive? (y/N)"
     read kfm
-    if [ "${kfm,,}" == "y" || "$kfm" == "yes" ]; then
+    if [[ "${kfm,,}" == "y" || "$kfm" == "yes" ]]; then
         echo "Linking OneDrive folders:"
         for (( i=0; i<3; i++ )); do
             ln -sv ${WINHOME}/OneDrive/${windir[$i]} ${HOME}/${windir[$i]}
@@ -111,7 +111,7 @@ sudo apt install build-essential -y
 # Ask for shell option
 echo "Do you want to change your default shell to fish? (y/N)"
 read shop
-if [ "${shop,,}" == "y" || "${shop,,}" == "yes" ]; then
+if [[ "${shop,,}" == "y" || "${shop,,}" == "yes" ]]; then
     sudo apt install fish -y
     sudo chsh -s $(which fish)
 fi
@@ -120,7 +120,7 @@ fi
 # Copy config files
 echo "Do you want to install the config files? WARNING: This will overwrite all existing config files! (y/N)"
 read cfg
-if [ "${cfg,,}" == "y" || "${cfg,,}" == "yes" ]; then
+if [[ "${cfg,,}" == "y" || "${cfg,,}" == "yes" ]]; then
     cp -v .tmux.conf $HOME
     cp -rv .gnupg $HOME
     cp -rv .config $HOME
